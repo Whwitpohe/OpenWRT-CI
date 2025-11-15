@@ -97,9 +97,8 @@ jobs:
         run: |
           if [ -d "./wrt/.git" ]; then
             echo "Directory already exists, update repository"
-            cd ./wrt
-            git fetch --depth=1 origin $WRT_BRANCH
-            git reset --hard FETCH_HEAD
+            git -C ./wrt fetch --depth=1 origin $WRT_BRANCH
+            git -C ./wrt reset --hard FETCH_HEAD
           else
             echo "Directory does not exist, clone repository"
             git clone --depth=1 --single-branch --branch $WRT_BRANCH $WRT_REPO ./wrt/
