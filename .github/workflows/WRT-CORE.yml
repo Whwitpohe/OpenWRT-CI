@@ -40,6 +40,9 @@ on:
       WRT_TEST:
         required: false
         type: string
+      RUNNER:
+        required: true
+        type: string
 
 env:
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -60,7 +63,8 @@ jobs:
   core:
     name: ${{inputs.WRT_SOURCE}}
     #runs-on: ubuntu-latest
-    runs-on: self-hosted
+#    runs-on: self-hosted
+    runs-on: ${{inputs.RUNNER}}
     steps:
       - name: Checkout Projects
         uses: actions/checkout@main

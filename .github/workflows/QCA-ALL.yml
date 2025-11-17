@@ -23,6 +23,13 @@ on:
         default: 'false'
         required: false
         type: boolean
+      RUNNER:
+        description: "选择要运行的 Runner"
+        required: true
+        type: choice
+        options:
+          - self-hosted
+          - ubuntu-latest
 
 #CI权限
 permissions: write-all
@@ -43,6 +50,8 @@ jobs:
     #调用公用编译核心WRT-CORE.yml
     uses: ./.github/workflows/WRT-CORE.yml
     with:
+      #运行编译的设备
+      RUNNER: ${{inputs.RUNNER}}
       #编译配置
       WRT_CONFIG: ${{matrix.CONFIG}}
       #默认主题
