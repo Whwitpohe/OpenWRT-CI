@@ -42,6 +42,7 @@ on:
         type: string
       RUNNER:
         required: true
+        default: ubuntu-latest
         type: string
 
 env:
