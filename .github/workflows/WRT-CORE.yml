@@ -41,7 +41,7 @@ on:
         required: false
         type: string
       RUNNER:
-        required: true
+        required: false
         default: ubuntu-latest
         type: string
 
@@ -63,8 +63,6 @@ env:
 jobs:
   core:
     name: ${{inputs.WRT_SOURCE}}
-    #runs-on: ubuntu-latest
-#    runs-on: self-hosted
     runs-on: ${{inputs.RUNNER}}
     steps:
       - name: Check recent push only for schedule

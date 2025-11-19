@@ -49,7 +49,7 @@ jobs:
     uses: ./.github/workflows/WRT-CORE.yml
     with:
       #运行编译的设备
-      RUNNER: ${{inputs.RUNNER}}
+      RUNNER: ${{ inputs.RUNNER || 'ubuntu-latest' }}
       #编译配置
       WRT_CONFIG: ${{matrix.CONFIG}}
       #默认主题
