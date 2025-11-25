@@ -42,7 +42,6 @@ on:
         type: string
       RUNNER:
         required: false
-        default: ubuntu-latest
         type: string
 
 env:
@@ -63,7 +62,7 @@ env:
 jobs:
   core:
     name: ${{inputs.WRT_SOURCE}}
-    runs-on: ${{inputs.RUNNER}}
+    runs-on: ${{ inputs.RUNNER || 'ubuntu-latest' }}
     steps:
       - name: Check recent push only for schedule
         if: github.event_name == 'schedule'
