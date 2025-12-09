@@ -5,7 +5,8 @@ name: OWRT-ALL
 on:
   #自动编译：当Auto-Clean运行完成后
   workflow_run:
-    workflows: ["Auto-Clean"]
+    workflows: ["xxxxxxx"]
+#    workflows: ["Auto-Clean"]
     types:
       - completed
   #手动编译
@@ -41,7 +42,7 @@ jobs:
       #max-parallel: 3
       matrix:
         #CONFIG: [MEDIATEK, ROCKCHIP, X86]
-        CONFIG: []
+        CONFIG: [X86]
         SOURCE: [VIKINGYFY/immortalwrt]
         BRANCH: [owrt]
 
